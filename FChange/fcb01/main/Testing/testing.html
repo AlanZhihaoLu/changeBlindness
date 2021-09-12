@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>testing</title>
+        <script src="../jspsych-6.3.1/jspsych.js"></script>
+        <link href="jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="image-stimuli">
+            <img id="image1" src="Scene1_CON.png" width="500" height="375">
+            <img id="mask" src="gray.png" width="500" height="375">
+            <img id="image2" src="Scene1_SEM.png" width="500" height="375">
+        </div>
+    </body>
+    <script>
+        var maskDur = 80;
+        var imageDur = 240;
+        var image2 = document.querySelector('#image2');
+        var mask = document.querySelector('#mask');
+        image2.style.opacity = 0;
+        mask.style.opacity = 0;
+
+        function showHide(scenario) {
+            if (scenario === 2) {
+                mask.style.opacity = 1;
+                image2.style.opacity = 0;
+                return maskDur
+            } else if (scenario === 3) {
+                image2.style.opacity = 1;
+                return imageDur
+            } else if (scenario === 1) {
+                mask.style.opacity = 0;
+                return imageDur
+            }
+        }
+
+        var scenarios = [1,2,3,2]
+
+        // function changeImage(scenarios) {
+        //     if (!continueFlicker) {
+        //         mask.style.opacity = 0;
+        //         return null
+        //     } else {
+        //         scenario = scenarios.pop();
+        //         timing = showHide(scenario);
+        //         scenarios.unshift(scenario);
+        //         setTimeout(()=>changeImage(scenarios),timing)
+        //     }
+        // }
+
+        var timeoutID;
+
+        function changeImage(scenarios) {
+            var scenario = scenarios.pop();
+            timing = showHide(scenario);
+            scenarios.unshift(scenario);
+            timeoutID = setTimeout(()=>changeImage(scenarios),timing);
+        }
+
+        image2.addEventListener('mousedown', function(e) {
+            console.log('Click!!')
+            mask.style.opacity = 0;
+            clearTimeout(timeoutID);
+        })
+
+        var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+            callback_function: after_response,
+            valid_responses: jsPsych.ALL_KEYS,
+            rt_method: 'performance',
+            persist: false,
+            allow_held_key: false
+        });
+
+        function after_response(info) {
+            console.log('Click!!')
+            mask.style.opacity = 0;
+            clearTimeout(timeoutID);
+            console.log(info)
+        }
+
+        changeImage(scenarios);
+
+    </script>
+</html>
