@@ -47,6 +47,12 @@
         },
         description: 'Specify original and scaled image dimensions.'
       },
+      delay_change_onset: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: "Delay change onset",
+        default: null,
+        description: "How long to delay onset of change."
+      },
       prompt: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Prompt',
@@ -59,6 +65,12 @@
         pretty_name: 'Choices',
         default: jsPsych.ALL_KEYS,
         description: 'The keys the subject is allowed to press to respond to the stimulus.'
+      },
+      trial_duration: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: 'Trial duration',
+        default: null,
+        description: 'How long to show trial before it ends.'
       },
       response_ends_trial: {
         type: jsPsych.plugins.parameterType.BOOL,
@@ -97,10 +109,12 @@
     var mask_style = "position:absolute;top:0;left:0;";
     var img2_style = "position:absolute;top:0;left:0;";
 
+    var second_image_src = trial.delay_change_onset === null ? trial.second_image : trial.first_image;
+
     var stimulus = `<div class="image-stimuli" style=${img_parent_style}>` + 
       `<img id='image1' src=${trial.first_image} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img1_style}>` + 
       `<img id='mask' src=${trial.mask} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${mask_style}>` +
-      `<img id='image2' src=${trial.second_image} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img2_style}>` +
+      `<img id='image2' src=${second_image_src} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img2_style}>` +
       '</div>';
 
     display_element.innerHTML = stimulus;
@@ -222,6 +236,29 @@
       });
 
     };
+
+    // present change with delay if delay_change_onset is set
+    if (trial.delay_change_onset !== null) {
+      jsPsych.pluginAPI.setTimeout(function() {
+        image2.src = trial.second_image;
+      }, trial.delay_change_onset);
+    }
+
+    // end trial if trial_duration is set
+    if (trial.trial_duration !== null) {
+      jsPsych.pluginAPI.setTimeout(function() {
+
+        // kill keyboard listeners
+        if (typeof keyboardListener !== 'undefined') {
+          jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
+        }
+        
+        after_response({
+          rt: null
+        });
+      }, trial.trial_duration);
+    }
+
   };
   return plugin;
 })();
