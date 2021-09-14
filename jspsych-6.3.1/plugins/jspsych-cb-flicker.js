@@ -123,6 +123,8 @@
 
     // flicker implementation
 
+    var responded = false;
+
     var maskDur = 80;
     var imageDur = 240;
     var image2 = document.querySelector('#image2');
@@ -199,7 +201,11 @@
       mask.style.opacity = 0;
       clearTimeout(timeoutID);
 
-      display_element.innerHTML = '<p>Where is the change?</p>' + display_element.innerHTML + '<p>Please click on the location of the change.</p>';
+      if (!responded) {
+        display_element.innerHTML = '<p>Where is the change?</p>' + display_element.innerHTML + '<p>Please click on the location of the change.</p>';
+        responded = true;
+      }
+
       document.body.style.cursor = 'auto';
 
       var image2 = document.querySelector('#image2');
@@ -252,7 +258,7 @@
         if (typeof keyboardListener !== 'undefined') {
           jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
         }
-        
+
         after_response({
           rt: null
         });
