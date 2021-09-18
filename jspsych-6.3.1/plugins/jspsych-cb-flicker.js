@@ -150,20 +150,22 @@
 
     var timeoutID;
 
-    var timingCheck = performance.now();
+    var t0 = performance.now();
 
-    function changeImage(scenarios) {
+    function changeImage(scenarios, prev_timing=null) {
         var scenario = scenarios.pop();
         timing = showHide(scenario);
 
-        // Check if timing is correct
-        var currTime = performance.now();
-        var timeDiff = Math.round(currTime - timingCheck);
-        console.log(timeDiff);
-        timingCheck = currTime;
+        if (prev_timing !== null) {
+          // Check if timing is correct
+          var t1 = performance.now();
+          var timingCheck = Math.round(t1 - t0);
+          console.log(timingCheck);
+          t0 = t1;
+        }
 
         scenarios.unshift(scenario);
-        timeoutID = setTimeout(()=>changeImage(scenarios),2*timing-timeDiff);
+        timeoutID = setTimeout(()=>changeImage(scenarios,timing),timing);
     }
 
     if (trial.choices != jsPsych.NO_KEYS) {
