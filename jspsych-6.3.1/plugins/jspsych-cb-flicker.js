@@ -158,11 +158,12 @@
 
         // Check if timing is correct
         var currTime = performance.now();
-        console.log(Math.round(currTime - timingCheck));
+        var timeDiff = Math.round(currTime - timingCheck);
+        console.log(timeDiff);
         timingCheck = currTime;
 
         scenarios.unshift(scenario);
-        timeoutID = setTimeout(()=>changeImage(scenarios),timing);
+        timeoutID = setTimeout(()=>changeImage(scenarios),timing-timeDiff);
     }
 
     if (trial.choices != jsPsych.NO_KEYS) {
