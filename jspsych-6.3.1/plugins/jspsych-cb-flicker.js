@@ -150,7 +150,12 @@
 
     var timeoutID;
 
+    var timingCheck = performance.now();
+
     function changeImage(scenarios) {
+        var curr_time = performance.now();
+        console.log(curr_time - timing_Check)
+        timingCheck = curr_time;
         var scenario = scenarios.pop();
         timing = showHide(scenario);
         scenarios.unshift(scenario);
