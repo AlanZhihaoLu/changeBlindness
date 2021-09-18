@@ -154,7 +154,7 @@
 
     function changeImage(scenarios) {
         var curr_time = performance.now();
-        console.log(curr_time - timing_Check)
+        console.log(curr_time - timingCheck)
         timingCheck = curr_time;
         var scenario = scenarios.pop();
         timing = showHide(scenario);
