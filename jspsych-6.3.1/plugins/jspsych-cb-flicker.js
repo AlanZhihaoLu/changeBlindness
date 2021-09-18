@@ -156,14 +156,16 @@
         var scenario = scenarios.pop();
         timing = showHide(scenario);
 
-        var offTiming = 0;
+        // Check if timing is correct
+        var t1 = performance.now();
+        var timeDiff = t1 - t0;
         if (prev_timing !== null) {
-          // Check if timing is correct
-          var t1 = performance.now();
-          offTiming = Math.round((t1 - t0) - prev_timing);
-          console.log(offTiming);
-          t0 = t1;
+          var offTiming = Math.round(timeDiff - prev_timing);
+        } else {
+          var offTiming = 0;
         }
+        console.log(timeDiff);
+        t0 = t1;
 
         scenarios.unshift(scenario);
         timeoutID = setTimeout(()=>changeImage(scenarios,timing-offTiming),timing-offTiming);
