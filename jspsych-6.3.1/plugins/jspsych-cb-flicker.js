@@ -153,11 +153,14 @@
     var timingCheck = performance.now();
 
     function changeImage(scenarios) {
-        var curr_time = performance.now();
-        console.log(Math.round(curr_time - timingCheck));
-        timingCheck = curr_time;
         var scenario = scenarios.pop();
         timing = showHide(scenario);
+
+        // Check if timing is correct
+        var currTime = performance.now();
+        console.log(Math.round(currTime - timingCheck));
+        timingCheck = currTime;
+
         scenarios.unshift(scenario);
         timeoutID = setTimeout(()=>changeImage(scenarios),timing);
     }
