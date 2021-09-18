@@ -156,16 +156,17 @@
         var scenario = scenarios.pop();
         timing = showHide(scenario);
 
+        var offTiming = 0;
         if (prev_timing !== null) {
           // Check if timing is correct
           var t1 = performance.now();
-          var timingCheck = Math.round(t1 - t0);
-          console.log(timingCheck);
+          offTiming = Math.round((t1 - t0) - prev_timing);
+          console.log(offTiming);
           t0 = t1;
         }
 
         scenarios.unshift(scenario);
-        timeoutID = setTimeout(()=>changeImage(scenarios,timing),timing);
+        timeoutID = setTimeout(()=>changeImage(scenarios,timing-offTiming),timing-offTiming);
     }
 
     if (trial.choices != jsPsych.NO_KEYS) {
