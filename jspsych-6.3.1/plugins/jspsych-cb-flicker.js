@@ -163,7 +163,7 @@
         timingCheck = currTime;
 
         scenarios.unshift(scenario);
-        timeoutID = setTimeout(()=>changeImage(scenarios),timing-timeDiff);
+        timeoutID = setTimeout(()=>changeImage(scenarios),2*timing-timeDiff);
     }
 
     if (trial.choices != jsPsych.NO_KEYS) {
