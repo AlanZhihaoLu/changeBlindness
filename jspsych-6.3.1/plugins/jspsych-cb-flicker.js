@@ -150,25 +150,25 @@
 
     var timeoutID;
 
-    var t0 = performance.now();
+    // var t0 = performance.now();
 
-    function changeImage(scenarios, prev_timing=null) {
+    function changeImage(scenarios) {
         var scenario = scenarios.pop();
         timing = showHide(scenario);
 
-        // Check if timing is correct
-        var t1 = performance.now();
-        var timeDiff = t1 - t0;
-        if (prev_timing !== null) {
-          var offTiming = Math.round(timeDiff - prev_timing);
-        } else {
-          var offTiming = 0;
-        }
-        console.log(timeDiff);
-        t0 = t1;
+        // // Check if timing is correct
+        // var t1 = performance.now();
+        // var timeDiff = t1 - t0;
+        // if (prev_timing !== null) {
+        //   var offTiming = Math.round(timeDiff - prev_timing);
+        // } else {
+        //   var offTiming = 0;
+        // }
+        // console.log(timeDiff);
+        // t0 = t1;
 
         scenarios.unshift(scenario);
-        timeoutID = setTimeout(()=>changeImage(scenarios,timing-offTiming),timing-offTiming);
+        timeoutID = setTimeout(()=>changeImage(scenarios),timing);
     }
 
     if (trial.choices != jsPsych.NO_KEYS) {
