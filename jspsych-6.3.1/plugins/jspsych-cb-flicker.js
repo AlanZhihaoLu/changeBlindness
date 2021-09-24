@@ -47,11 +47,17 @@
         },
         description: 'Specify original and scaled image dimensions.'
       },
-      delay_change_onset: {
+      delay_change_onset_time: {
         type: jsPsych.plugins.parameterType.INT,
-        pretty_name: "Delay change onset",
+        pretty_name: "Delay change onset time",
         default: null,
-        description: "How long to delay onset of change."
+        description: "How long to delay onset of change (in ms)."
+      },
+      delay_change_onset_alt: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: "Delay change onset alternations",
+        default: null,
+        description: "How long to delay onset of change (in alternations)."
       },
       prompt: {
         type: jsPsych.plugins.parameterType.STRING,
@@ -109,7 +115,7 @@
     var mask_style = "position:absolute;top:0;left:0;";
     var img2_style = "position:absolute;top:0;left:0;";
 
-    var second_image_src = trial.delay_change_onset === null ? trial.second_image : trial.first_image;
+    var second_image_src = trial.delay_change_onset_time !== null || trial.delay_change_onset_alt !== null ? trial.first_image : trial.second_image ;
 
     var stimulus = `<div class="image-stimuli" style=${img_parent_style}>` + 
       `<img id='image1' src=${trial.first_image} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img1_style}>` + 
@@ -146,13 +152,13 @@
         }
     }
 
-    var scenarios = [1,2,3,2]
+    var scenarios = [2,3,2,1]
 
     var timeoutID;
 
     // var t0 = performance.now();
 
-    function changeImage(scenarios) {
+    function changeImage(scenarios,n_alt) {
         var scenario = scenarios.pop();
         timing = showHide(scenario);
 
@@ -167,8 +173,21 @@
         // console.log(timeDiff);
         // t0 = t1;
 
+        if (trial.delay_change_onset_alt !== null) {
+          if (n_alt === trial.delay_change_onset_alt) {
+            if (scenarios[scenarios.length - 1] === 3) {
+              image2.src = trial.second_image;
+            } else if (scenarios[scenarios.length - 1] === 1) {
+              image1.src = trial.second_image;
+            }
+          }
+          if (scenario !== 2) {
+            n_alt+=1;
+          }
+        }
+        
         scenarios.unshift(scenario);
-        timeoutID = setTimeout(()=>changeImage(scenarios),timing);
+        timeoutID = setTimeout(()=>changeImage(scenarios,n_alt),timing);
     }
 
     if (trial.choices != jsPsych.NO_KEYS) {
@@ -182,7 +201,7 @@
     }
 
     startTime = performance.now();
-    changeImage(scenarios);
+    changeImage(scenarios,0);
     
     // Taken from https://www.chestysoft.com/imagefile/javascript/get-coordinates.asp
     function FindPosition(oElement) {
@@ -257,11 +276,11 @@
 
     };
 
-    // present change with delay if delay_change_onset is set
-    if (trial.delay_change_onset !== null) {
+    // present change with delay if delay_change_onset_time is set
+    if (trial.delay_change_onset_time !== null) {
       jsPsych.pluginAPI.setTimeout(function() {
         image2.src = trial.second_image;
-      }, trial.delay_change_onset);
+      }, trial.delay_change_onset_time);
     }
 
     // end trial if trial_duration is set
