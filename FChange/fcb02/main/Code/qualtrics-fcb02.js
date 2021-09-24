@@ -8,11 +8,10 @@ Qualtrics.SurveyEngine.addOnload(function()
     // Hide buttons
     qthis.hideNextButton();
     /* Change 3: Defining and load required resources */
-    var repo_site = "https://alanzhihaolu.github.io/fcb01/"
+    var repo_site = "https://alanzhihaolu.github.io/changeBlindness/"
     var jslib_url = repo_site + "jspsych-6.3.1/";
 
-    // delay_property 
-    var delay_property = 'delay1';
+    var cond = 1;
 
     // the below urls must be accessible with your browser
     // for example, https://kywch.github.io/jsPsych/jspsych.js
@@ -21,8 +20,9 @@ Qualtrics.SurveyEngine.addOnload(function()
         jslib_url + "plugins/jspsych-side-by-side-differences.js",
         jslib_url + "plugins/jspsych-html-button-response.js",
         jslib_url + "plugins/jspsych-preload.js",
-        repo_site + "Input/input.js",
-        repo_site + "Code/feature-change-blindness-01_main.js"
+        repo_site + `FChange/fcb02/main/Input/delay${cond}.js`,
+        repo_site + "FChange/fcb02/main/Input/input.js",
+        repo_site + "FChange/fcb02/main/Code/feature-change-blindness-02_main.js"
     ];
 
     function loadScript(idx) {

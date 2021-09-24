@@ -7486,4 +7486,4 @@ function process_input(raw_stimuli, img_src) {
     return test_stimuli;
 }
 
-test_stimuli = process_input(raw_stimuli, img_src);
+var test_stimuli = process_input(raw_stimuli, img_src);
