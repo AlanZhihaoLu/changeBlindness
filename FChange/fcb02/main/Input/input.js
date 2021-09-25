@@ -7453,7 +7453,7 @@ var raw_stimuli = [
   }
 ]
 
-img_src = '../Images/'
+img_src = 'https://alanzhihaolu.github.io/changeBlindness/FChange/fcb02/main/Images/'
 
 function process_input(raw_stimuli, img_src) {
     var test_stimuli = [];

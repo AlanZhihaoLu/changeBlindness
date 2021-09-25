@@ -20,7 +20,7 @@ Qualtrics.SurveyEngine.addOnload(function()
         jslib_url + "plugins/jspsych-side-by-side-differences.js",
         jslib_url + "plugins/jspsych-html-button-response.js",
         jslib_url + "plugins/jspsych-preload.js",
-        repo_site + `FChange/fcb02/main/Input/delay${cond}.js`,
+        repo_site + "FChange/fcb02/main/Input/delay" + cond + ".js",
         repo_site + "FChange/fcb02/main/Input/input.js",
         repo_site + "FChange/fcb02/main/Code/feature-change-blindness-02_main.js"
     ];
