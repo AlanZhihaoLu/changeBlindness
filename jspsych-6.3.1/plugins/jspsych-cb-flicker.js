@@ -119,8 +119,8 @@
 
     var stimulus = `<div class="image-stimuli" style=${img_parent_style}>` + 
       `<img id='image1' src=${trial.first_image} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img1_style}>` + 
-      `<img id='mask' src=${trial.mask} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${mask_style}>` +
-      `<img id='image2' src=${second_image_src} alt="First Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img2_style}>` +
+      `<img id='mask' src=${trial.mask} alt="Mask" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${mask_style}>` +
+      `<img id='image2' src=${second_image_src} alt="Second Image" width="${trial.image_dimensions.scaled[0]}" height="${trial.image_dimensions.scaled[1]}" style=${img2_style}>` +
       '</div>';
 
     display_element.innerHTML = stimulus;

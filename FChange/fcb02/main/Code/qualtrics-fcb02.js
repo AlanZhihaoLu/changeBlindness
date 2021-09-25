@@ -17,7 +17,7 @@ Qualtrics.SurveyEngine.addOnload(function()
     // for example, https://kywch.github.io/jsPsych/jspsych.js
     var requiredResources = [
         jslib_url + "jspsych.js",
-        jslib_url + "plugins/jspsych-side-by-side-differences.js",
+        jslib_url + "plugins/jspsych-cb-flicker.js",
         jslib_url + "plugins/jspsych-html-button-response.js",
         jslib_url + "plugins/jspsych-preload.js",
         repo_site + "FChange/fcb02/main/Input/delay" + cond + ".js",

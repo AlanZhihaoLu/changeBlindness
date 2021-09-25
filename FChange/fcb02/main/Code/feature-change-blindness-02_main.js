@@ -2,7 +2,9 @@ test_stimuli = jsPsych.randomization.repeat(test_stimuli, 1);
 
 var images = [
     test_stimuli.map(a => a.first_image),
-    test_stimuli.map(a => a.second_image)];
+    test_stimuli.map(a => a.second_image),
+    mask_stimulus
+];
 
 var timeline = [];
 
@@ -39,7 +41,7 @@ var trial = {
     type: 'cb-flicker',
     first_image: jsPsych.timelineVariable('first_image'),
     second_image: jsPsych.timelineVariable('second_image'),
-    mask: "../Images/gray.png",
+    mask: mask_stimulus,
     patches: jsPsych.timelineVariable('patches'),
     choices: [' '],
     image_dimensions: image_dimensions,
