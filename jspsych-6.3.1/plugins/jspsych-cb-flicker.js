@@ -89,11 +89,14 @@
 
   plugin.trial = function(display_element, trial) {
 
+    var trialStart = performance.now()
+
     var trial_data = {
       rt: null,
       PosX: null,
       PosY: null,
-      hit: null
+      hit: null,
+      trial_dur: null
     }
 
     var scale_ratio = trial.image_dimensions.scaled[0] / trial.image_dimensions.original[0];
@@ -262,6 +265,7 @@
         trial_data.PosY = trial_data.PosY === null ? PosY / scale_ratio : trial_data.PosY;
         var hit = isTarget(PosX, PosY, trial.patches);
         trial_data.hit = trial_data.hit === null ? hit : trial_data.hit;
+        trial_data.trial_dur = performance.now() - trialStart;
 
         // kill any remaining setTimeout handlers
         jsPsych.pluginAPI.clearAllTimeouts();
@@ -282,6 +286,7 @@
     if (trial.delay_change_onset_time !== null) {
       jsPsych.pluginAPI.setTimeout(function() {
         image2.src = trial.second_image;
+        startTime = performance.now();
       }, trial.delay_change_onset_time);
     }
 
