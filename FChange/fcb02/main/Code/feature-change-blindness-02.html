@@ -12,9 +12,9 @@
     <body>
         <script>
 
-            test_stimuli = jsPsych.randomization.repeat(test_stimuli, 1);
+            // test_stimuli = jsPsych.randomization.repeat(test_stimuli, 1);
 
-            var cond = 1;
+            var cond = 5;
 
             var delay_property = `delay${cond}`;
             
@@ -69,7 +69,7 @@
                 stimulus: function() {
                     var last_trial_hit = jsPsych.data.get().last(1).values()[0].hit;
                     if (last_trial_hit) {
-                        return "<h3>Correct!</h3>"
+                        return `<h3>Correct!</h3>`
                     } else {
                         return "<h3>Sorry, that's not where the change was.</h3>"
                     }

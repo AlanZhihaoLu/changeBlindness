@@ -2338,6 +2338,7 @@ jsPsych.pluginAPI = (function() {
         parameters.callback_function({
           key: key,
           rt: rt_ms,
+          key_time: key_time
         });
 
         if (keyboard_listeners.includes(listener_id)) {

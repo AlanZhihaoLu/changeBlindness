@@ -156,33 +156,35 @@
 
     var timeoutID;
 
-    // var t0 = performance.now();
+    var dcoa_flag = trial.delay_change_onset_alt !== null;
+
+    // var timeDiff = 0;
+    // var t1 = performance.now();
+    // var t0 = t1;
+    // var prev_timing = 0;
 
     function changeImage(scenarios,n_alt) {
         var scenario = scenarios.pop();
-        timing = showHide(scenario);
+        var timing = showHide(scenario);
 
         // // Check if timing is correct
-        // var t1 = performance.now();
-        // var timeDiff = t1 - t0;
-        // if (prev_timing !== null) {
-        //   var offTiming = Math.round(timeDiff - prev_timing);
-        // } else {
-        //   var offTiming = 0;
-        // }
+        // t1 = performance.now();
+        // timeDiff = t1 - t0 - prev_timing;
         // console.log(timeDiff);
         // t0 = t1;
+        // prev_timing = timing;
 
-        if (trial.delay_change_onset_alt !== null) {
+        if (dcoa_flag) {
+          n_alt+=0.5
           if (n_alt === trial.delay_change_onset_alt) {
             if (scenarios[scenarios.length - 1] === 3) {
               image2.src = trial.second_image;
             } else if (scenarios[scenarios.length - 1] === 1) {
               image1.src = trial.second_image;
             }
-          }
-          if (scenario !== 2) {
-            n_alt+=1;
+          } else if (n_alt === trial.delay_change_onset_alt+0.5) {
+            startTime = performance.now();
+            dcoa_flag = false;
           }
         }
         
@@ -229,7 +231,7 @@
     function after_response(info) {
 
       // only record first response
-      trial_data.rt = trial_data.rt == null ? info.rt : trial_data.rt;
+      trial_data.rt = trial_data.rt == null ? info.key_time-startTime : trial_data.rt;
 
       mask.style.opacity = 0;
       clearTimeout(timeoutID);
