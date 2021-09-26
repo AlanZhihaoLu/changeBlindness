@@ -12,9 +12,11 @@
     <body>
         <script>
 
-            // test_stimuli = jsPsych.randomization.repeat(test_stimuli, 1);
+            test_stimuli = jsPsych.randomization.repeat(test_stimuli, 1);
 
-            var cond = 5;
+            test_stimuli = test_stimuli.slice(0, 3);
+
+            var cond = 1;
 
             var delay_property = `delay${cond}`;
             
@@ -93,6 +95,17 @@
                 exclusions: {
                     min_width: image_dimensions.scaled[0]+100,
                     min_height: image_dimensions.scaled[1]+150
+                },
+                on_finish: function() {
+                    jsPsych.data.displayData();
+                    data = jsPsych.data.get().filter({trial_type: "cb-flicker"}).json();
+                    fetch('http://localhost:3000/pilot', { 
+                        method: 'post',
+                        headers: {'Content-Type': 'application/json'}, 
+                        body: JSON.stringify({ 
+                        exp_data: data
+                        })
+                    })
                 }
             });
         </script>
