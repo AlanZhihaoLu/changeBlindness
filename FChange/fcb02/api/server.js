@@ -27,14 +27,14 @@ const mount = async (app) => {
             res.json("I'm awake")
         });
 
-        app.delete('/pilot', async (req, res) => {
-            try {
-                const result = await db.fcb02.deleteMany();
-                res.sendStatus(200)
-            } catch (err) {
-                res.status(400).json(err)
-            }
-        })
+        // app.delete('/pilot', async (req, res) => {
+        //     try {
+        //         const result = await db.fcb02.deleteMany();
+        //         res.sendStatus(200)
+        //     } catch (err) {
+        //         res.status(400).json(err)
+        //     }
+        // })
 
         app.listen(process.env.PORT || 3000, ()=>{
             console.log(`app is running on port ${process.env.PORT}`)
