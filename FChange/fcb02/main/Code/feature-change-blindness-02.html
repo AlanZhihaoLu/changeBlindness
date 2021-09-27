@@ -63,7 +63,6 @@
                     "<br>So, try to <b>press the spacebar</b> as soon as you spot the difference!</p>",
                 choices: ["Understood, let's get started"]
             };
-            timeline.push(timing_explanation);
 
             var fixation = {
                 type: 'html-keyboard-response',
@@ -98,19 +97,40 @@
                         return "<h3>Sorry, that's not where the change was.</h3>"
                     }
                 },
-                choices: ["Let's see the next one"]
+                choices: ["Let's see the next one"],
+                on_start: function(){
+                    fetch('https://jspsych-server.herokuapp.com/pilot')
+                    .then(response=>response.json())
+                    .then(resp=>console.log(resp))
+                }
             };
+
+            timeline.push({
+                timeline: [fixation, trial, feedback],
+                timeline_variables: example_stimulus
+            });
+            timeline.push(timing_explanation);
             timeline.push({
                 timeline: [fixation, trial, feedback],
                 timeline_variables: test_stimuli
             });
 
-            var end_of_demo = {
-                type: "html-button-response",
-                stimulus: "<h3>I love your enthusiasm, but it's the end of the demo. Check back later for a full version!</h3>",
-                choices: ["Ugh, fine. [ends the demo]"]
-            };
-            timeline.push(end_of_demo);
+            var end_note = {
+                type: "html-keyboard-response",
+                stimulus: "<p><b>DO NOT EXIT THE EXPERIMENT.<br>" +
+                "Please wait - the experiment will continue in 10 seconds.</b></p>",
+                choices: jsPsych.NO_KEYS,
+                trial_duration: 10000,
+                data: {
+                    on_screen: 'end_note'
+                },
+                on_start: function(){
+                    fetch('https://jspsych-server.herokuapp.com/pilot')
+                    .then(response=>response.json())
+                    .then(resp=>console.log(resp))
+                }
+            }
+            timeline.push(end_note);
 
             jsPsych.init({
                 timeline: timeline,

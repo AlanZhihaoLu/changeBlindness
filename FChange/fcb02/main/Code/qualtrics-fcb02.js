@@ -19,6 +19,7 @@ Qualtrics.SurveyEngine.addOnload(function()
         jslib_url + "jspsych.js",
         jslib_url + "plugins/jspsych-cb-flicker.js",
         jslib_url + "plugins/jspsych-html-button-response.js",
+        jslib_url + "plugins/jspsych-html-keyboard-response.js",
         jslib_url + "plugins/jspsych-preload.js",
         repo_site + "FChange/fcb02/main/Input/delay" + cond + ".js",
         repo_site + "FChange/fcb02/main/Input/input.js",
@@ -49,8 +50,8 @@ Qualtrics.SurveyEngine.addOnload(function()
             timeline: timeline,
             display_element: 'display_stage',
             exclusions: {
-                min_width: (image_dimensions.scaled[0]*2)+100,
-                min_height: image_dimensions.scaled[1]
+                min_width: image_dimensions.scaled[0]+100,
+                min_height: image_dimensions.scaled[1]+100
             },
 
             /* Change 6: Adding the clean up and continue functions.*/
