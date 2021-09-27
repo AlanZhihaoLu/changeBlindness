@@ -77,12 +77,6 @@
         default: null,
         description: 'Any content here will be displayed below the stimulus.'
       },
-      prompt: {
-        type: jsPsych.plugins.parameterType.STRING,
-        pretty_name: 'Prompt',
-        default: null,
-        description: 'Any content here will be displayed below the stimulus.'
-      },
       choices: {
         type: jsPsych.plugins.parameterType.KEY,
         array: true,
@@ -264,9 +258,14 @@
     // function to handle responses by the subject
     function after_response(info) {
 
-      // only record first response
-      trial_data.rt = trial_data.rt == null ? info.key_time-startTime : trial_data.rt;
-      trial_data.key_time = trial_data.key_time === null ? info.key_time : trial_data.key_time;
+      if (info.rt === null) {
+        trial_data.rt = null;
+        trial_data.key_time = null;
+      } else {
+        // only record first response
+        trial_data.rt = trial_data.rt == null ? info.key_time-startTime : trial_data.rt;
+        trial_data.key_time = trial_data.key_time === null ? info.key_time : trial_data.key_time;
+      }
       trial_data.changeOnset = trial_data.changeOnset === null ? startTime : trial_data.changeOnset;
 
       mask.style.opacity = 0;

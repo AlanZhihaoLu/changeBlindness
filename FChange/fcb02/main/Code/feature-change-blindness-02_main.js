@@ -65,7 +65,8 @@ var trial = {
     patches: jsPsych.timelineVariable('patches'),
     choices: [' '],
     image_dimensions: image_dimensions,
-    delay_change_onset_alt: jsPsych.timelineVariable(delay_property)
+    delay_change_onset_alt: jsPsych.timelineVariable(delay_property),
+    trial_duration: 60000
 };
 
 var feedback = {
@@ -93,35 +94,6 @@ timeline.push({
 timeline.push(timing_explanation);
 timeline.push({
     timeline: [fixation, trial, feedback],
-    timeline_variables: test_stimuli
-});
-
-
-var trial = {
-    type: 'cb-flicker',
-    first_image: jsPsych.timelineVariable('first_image'),
-    second_image: jsPsych.timelineVariable('second_image'),
-    mask: mask_stimulus,
-    patches: jsPsych.timelineVariable('patches'),
-    choices: [' '],
-    image_dimensions: image_dimensions,
-    delay_change_onset_alt: jsPsych.timelineVariable(delay_property)
-};
-
-var feedback = {
-    type: "html-button-response",
-    stimulus: function() {
-        var last_trial_hit = jsPsych.data.get().last(1).values()[0].hit;
-        if (last_trial_hit) {
-            return "<h3>Correct!</h3>"
-        } else {
-            return "<h3>Sorry, that's not where the change was.</h3>"
-        }
-    },
-    choices: ["Let's see the next one"]
-};
-timeline.push({
-    timeline: [trial, feedback],
     timeline_variables: test_stimuli
 });
 
