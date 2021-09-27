@@ -33,9 +33,17 @@ var introduction = {
     "<br>Try to find the difference as quickly as possible!" + 
     "<br>When you find the difference between the two pictures, press the spacebar to stop the images from alternating." +
     "<br>Then, use your mouse and click on the location where you think the change occurred.</p>",
-    choices: ["Let's try it out"]
+    choices: ["Next"]
 };
 timeline.push(introduction);
+
+var in_case_timeout = {
+    type: "html-button-response",
+    stimulus: "<p>If you can't find the difference in 60 seconds, the images will automatically stop alternating." +
+        "<br>if that happens, just make a guess as to where the change occurred.",
+    choices: ["Let's try it out"]
+};
+timeline.push(in_case_timeout);
 
 var timing_explanation = {
     type: "html-button-response",
