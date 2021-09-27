@@ -7489,3 +7489,32 @@ function process_input(raw_stimuli, img_src) {
 var test_stimuli = process_input(raw_stimuli, img_src);
 
 var mask_stimulus = img_src + 'gray.png';
+
+var example_stimulus = [
+  {
+    "x": 945,
+    "y": 231,
+    "first_image": "example_a.jpg",
+    "second_image": "example_b.jpg",
+    "rad": 43.5,
+    "delay1": 1,
+    "delay2": 1,
+    "delay3": 1,
+    "delay4": 1,
+    "delay5": 1
+  },
+  {
+    "x": 894,
+    "y": 231,
+    "first_image": "example_a.jpg",
+    "second_image": "example_b.jpg",
+    "rad": 43.5,
+    "delay1": 1,
+    "delay2": 1,
+    "delay3": 1,
+    "delay4": 1,
+    "delay5": 1
+  }
+]
+
+var example_stimulus = process_input(example_stimulus, img_src)

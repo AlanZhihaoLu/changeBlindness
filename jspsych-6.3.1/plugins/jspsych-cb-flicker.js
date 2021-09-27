@@ -59,6 +59,24 @@
         default: null,
         description: "How long to delay onset of change (in alternations)."
       },
+      image_duration: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: 'Image Duration',
+        default: 240,
+        description: 'How long the image should stay on screen.'
+      },
+      mask_duration: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: 'Mask Duration',
+        default: 80,
+        description: 'How long the blank should stay on screen between images.'
+      },
+      prompt: {
+        type: jsPsych.plugins.parameterType.STRING,
+        pretty_name: 'Prompt',
+        default: null,
+        description: 'Any content here will be displayed below the stimulus.'
+      },
       prompt: {
         type: jsPsych.plugins.parameterType.STRING,
         pretty_name: 'Prompt',
@@ -96,7 +114,20 @@
       PosX: null,
       PosY: null,
       hit: null,
-      trial_dur: null
+      trial_dur: null,
+      trialStart: trialStart,
+      changeOnset: null,
+      key_time: null,
+      first_image: trial.first_image.split('/').pop(),
+      second_image: trial.second_image.split('/').pop(),
+      image_duration: trial.image_duration,
+      mask_duration: trial.mask_duration
+    }
+
+    if (trial.delay_change_onset_alt !== null) {
+      trial_data.change_onset_alt = trial.delay_change_onset_alt;
+    } else if (trial.delay_change_onset_time !== null) {
+      trial_data.change_onset_time = trial.delay_change_onset_time;
     }
 
     var scale_ratio = trial.image_dimensions.scaled[0] / trial.image_dimensions.original[0];
@@ -134,8 +165,8 @@
 
     var responded = false;
 
-    var maskDur = 80;
-    var imageDur = 240;
+    var maskDur = trial.mask_duration;
+    var imageDur = trial.image_duration;
     var image2 = document.querySelector('#image2');
     var mask = document.querySelector('#mask');
     image2.style.opacity = 0;
@@ -235,6 +266,8 @@
 
       // only record first response
       trial_data.rt = trial_data.rt == null ? info.key_time-startTime : trial_data.rt;
+      trial_data.key_time = trial_data.key_time === null ? info.key_time : trial_data.key_time;
+      trial_data.changeOnset = trial_data.changeOnset === null ? startTime : trial_data.changeOnset;
 
       mask.style.opacity = 0;
       clearTimeout(timeoutID);
@@ -265,7 +298,7 @@
         trial_data.PosY = trial_data.PosY === null ? PosY / scale_ratio : trial_data.PosY;
         var hit = isTarget(PosX, PosY, trial.patches);
         trial_data.hit = trial_data.hit === null ? hit : trial_data.hit;
-        trial_data.trial_dur = performance.now() - trialStart;
+        trial_data.trial_dur = trial_data.trial_dur === null ? performance.now() - trial_data.trialStart : trial_data.trial_dur;
 
         // kill any remaining setTimeout handlers
         jsPsych.pluginAPI.clearAllTimeouts();

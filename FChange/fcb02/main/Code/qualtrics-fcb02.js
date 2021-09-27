@@ -55,8 +55,8 @@ Qualtrics.SurveyEngine.addOnload(function()
 
             /* Change 6: Adding the clean up and continue functions.*/
             on_finish: function (data) {
-                // jsPsych.data.addProperties({sbj_id: sbj_id, test_condition: test_condition});
-                // save_data_json();
+                jsPsych.data.addProperties({sbj_id: sbj_id, cond: cond});
+                save_data_json();
                 // clear the stage
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();

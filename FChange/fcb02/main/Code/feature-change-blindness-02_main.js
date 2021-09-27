@@ -71,3 +71,14 @@ var end_of_demo = {
     choices: ["Ugh, fine. [ends the demo]"]
 };
 timeline.push(end_of_demo);
+
+function save_data_json() {
+    data = jsPsych.data.get().filter({trial_type: "cb-flicker"}).json();
+    fetch('https://jspsych-server.herokuapp.com/pilot', { 
+        method: 'post',
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify({ 
+        exp_data: data
+        })
+    })
+  }
