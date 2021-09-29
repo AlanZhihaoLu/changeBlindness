@@ -21,17 +21,17 @@ var image_dimensions = {
 
 var welcome = {
     type: "html-button-response",
-    stimulus: "<h3>Welcome to the experiment! This is a demo.</h3>",
+    stimulus: "<h3>Welcome to the experiment!</h3><p>Your goal in this experiment is to <b>spot the change between two pictures.</b></p>",
     choices: ["Next"]
 };
 timeline.push(welcome);
 
 var introduction = {
     type: "html-button-response",
-    stimulus: "<h4>Try to spot the difference between two pictures!</h4>" +
-    "<p>You will see one picture at a time. The picture that is shown will quickly alternate." +
-    "<br>Try to find the difference as quickly as possible!" + 
-    "<br>When you find the difference between the two pictures, press the spacebar to stop the images from alternating." +
+    stimulus: "<p>You will see two pictures rapidly alternating on your screen." +
+    "<br>One picture will be shown at a time. Between the two pictures, there will be one element that will change." +
+    "<br>Try to find that changing element as quickly as possible!" + 
+    "<br>When you find the change between the two pictures, press the spacebar to stop the images from alternating." +
     "<br>Then, use your mouse and click on the location where you think the change occurred.</p>",
     choices: ["Next"]
 };
