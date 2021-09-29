@@ -40,7 +40,7 @@ timeline.push(introduction);
 var in_case_timeout = {
     type: "html-button-response",
     stimulus: "<p>If you can't find the difference in 60 seconds, the images will automatically stop alternating." +
-        "<br>if that happens, just make a guess as to where the change occurred.",
+        "<br>If that happens, just make a guess as to where the change occurred.",
     choices: ["Let's try it out"]
 };
 timeline.push(in_case_timeout);
