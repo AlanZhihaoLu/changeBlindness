@@ -69,7 +69,7 @@ var trial = {
     type: 'cb-flicker',
     first_image: jsPsych.timelineVariable('first_image'),
     second_image: jsPsych.timelineVariable('second_image'),
-    mask: "../Images/gray.png",
+    mask: mask_stimulus,
     patches: jsPsych.timelineVariable('patches'),
     choices: [' '],
     image_dimensions: image_dimensions,
