@@ -15,7 +15,7 @@ const connectDatabase = async () => {
     })
     const db = client.db("fcb02")
     return {
-        fcb02: db.collection("pilot")
+        fcb02: db.collection("pilot2")
     }
 }
 
@@ -34,8 +34,8 @@ const getData = async () => {
     // console.log("Call to newArray took " + (t1 - t0)*10*50 + " milliseconds.")
     var csv = json2csv(newArray);
     var utc = new Date().toJSON().slice(0,10).replace(/-/g,'_');
-    fs.writeFileSync(`fcb02-pilot_${utc}.csv`, csv);
-    console.log(`Saved fcb02-pilot_${utc}.csv`)
+    fs.writeFileSync(`fcb02-pilot2_${utc}.csv`, csv);
+    console.log(`Saved fcb02-pilot2_${utc}.csv`)
     // const arrToJson = `{ "data": ${JSON.stringify(cursorToArray)} }`
     // var utc = new Date().toJSON().slice(0,10).replace(/-/g,'_');
     // fs.writeFileSync(`invrb01_${utc}.json`, arrToJson);

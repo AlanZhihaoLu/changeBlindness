@@ -1,0 +1,62 @@
+---
+title: "test"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+setwd("~/Documents/Graduate Files/ChangeBlindness/FChange/fcb02/data")
+source('~/Documents/Graduate Files/ChangeBlindness/FChange/fcb02/data/preprocess.R')
+library(tidyverse)
+library(lme4)
+data1 = preprocess_data(read.csv('fcb02-pilot_2021_10_14.csv'))
+data2 = preprocess_data(read.csv('fcb02-pilot2_2021_10_26.csv'))
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+data %>% group_by(cond) %>% summarize(count = length(unique(sbj_id))) %>% data.frame()
+data %>% group_by(sbj_id) %>% summarize(hit_rate = mean(hit=='true')) %>% data.frame()
+
+# data = data[data$rt != max(data$rt),]
+# outliers = boxplot(data$rt ~ data$change_onset_alt, plot=FALSE)$out
+# data = data[-which(data$rt %in% outliers),]
+
+onset_alt_sum = data %>% 
+  group_by(change_onset_alt) %>% 
+  summarize(rt = mean(rt))
+
+boxplot(data$rt ~ data$change_onset_alt)
+
+plot(onset_alt_sum$rt ~ onset_alt_sum$change_onset_alt) 
+
+data$change_onset_alt = factor(data$change_onset_alt, ordered=T)
+data$sbj_id = data$sbj_id %>% factor()
+data$first_image = data$first_image %>% factor()
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r lme_mdl, echo=FALSE, cache=TRUE}
+lme_mdl = lmer(scale(rt) ~ change_onset_alt + (1 | sbj_id) + (1 | first_image), data = data)
+summary(lme_mdl)
+```
+
+```{r}
+lme_mdl_n_alts = lmer(scale(n_alts) ~ change_onset_alt + (1 | sbj_id) + (1 | first_image), data = data)
+summary(lme_mdl_n_alts)
+```
+
+
+```{r}
+library(sjPlot)
+plot_model(lme_mdl, type="pred")
+plot_model(lme_mdl, type="re")
+```
+

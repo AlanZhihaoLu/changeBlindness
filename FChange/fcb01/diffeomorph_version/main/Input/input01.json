@@ -1,0 +1,434 @@
+[
+  {
+    "x": 690,
+    "y": 435,
+    "first_image": "target_winecellar.png",
+    "second_image": "target_winecellar_green_(690",
+    "rad": "435)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 945,
+    "y": 180,
+    "first_image": "target_courtroom.png",
+    "second_image": "target_courtroom_red_(945",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 843,
+    "y": 231,
+    "first_image": "target_fishingvillage.png",
+    "second_image": "target_fishingvillage_green_(843",
+    "rad": "231)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 282,
+    "y": 180,
+    "first_image": "target_stable.png",
+    "second_image": "target_stable_green_(282",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 945,
+    "y": 486,
+    "first_image": "target_playground.png",
+    "second_image": "target_playground_green_(945",
+    "rad": "486)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 537,
+    "y": 486,
+    "first_image": "target_atticRoom.png",
+    "second_image": "target_atticRoom_green_(537",
+    "rad": "486)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 894,
+    "y": 639,
+    "first_image": "target_bathroom.png",
+    "second_image": "target_bathroom_red_(894",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 792,
+    "y": 537,
+    "first_image": "target_treehouse.png",
+    "second_image": "target_treehouse_green_(792",
+    "rad": "537)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 843,
+    "y": 78,
+    "first_image": "target_garage.png",
+    "second_image": "target_garage_red_(843",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 741,
+    "y": 78,
+    "first_image": "target_hospital.png",
+    "second_image": "target_hospital_red_(741",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 129,
+    "y": 690,
+    "first_image": "target_hardwarestore.png",
+    "second_image": "target_hardwarestore_green_(129",
+    "rad": "690)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 690,
+    "y": 639,
+    "first_image": "target_coffeeshop.png",
+    "second_image": "target_coffeeshop_red_(690",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 537,
+    "y": 639,
+    "first_image": "target_refrigerator.png",
+    "second_image": "target_refrigerator_red_(537",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 78,
+    "y": 333,
+    "first_image": "target_mediaroom.png",
+    "second_image": "target_mediaroom_green_(78",
+    "rad": "333)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 282,
+    "y": 282,
+    "first_image": "target_clothingstore.png",
+    "second_image": "target_clothingstore_green_(282",
+    "rad": "282)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 384,
+    "y": 129,
+    "first_image": "target_forrest.png",
+    "second_image": "target_forrest_green_(384",
+    "rad": "129)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 435,
+    "y": 690,
+    "first_image": "target_ranch.png",
+    "second_image": "target_ranch_red_(435",
+    "rad": "690)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 588,
+    "y": 639,
+    "first_image": "target_porch.png",
+    "second_image": "target_porch_green_(588",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 78,
+    "y": 180,
+    "first_image": "target_temple.png",
+    "second_image": "target_temple_red_(78",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 792,
+    "y": 333,
+    "first_image": "target_bakery.png",
+    "second_image": "target_bakery_green_(792",
+    "rad": "333)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 741,
+    "y": 231,
+    "first_image": "target_soccerfield.png",
+    "second_image": "target_soccerfield_green_(741",
+    "rad": "231)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 639,
+    "y": 78,
+    "first_image": "target_church.png",
+    "second_image": "target_church_red_(639",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 180,
+    "y": 435,
+    "first_image": "target_backyard.png",
+    "second_image": "target_backyard_green_(180",
+    "rad": "435)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 129,
+    "y": 588,
+    "first_image": "target_mountain.png",
+    "second_image": "target_mountain_red_(129",
+    "rad": "588)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 333,
+    "y": 333,
+    "first_image": "target_cemetery.png",
+    "second_image": "target_cemetery_green_(333",
+    "rad": "333)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 588,
+    "y": 180,
+    "first_image": "target_tunnel.png",
+    "second_image": "target_tunnel_green_(588",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 843,
+    "y": 537,
+    "first_image": "target_marsh.png",
+    "second_image": "target_marsh_green_(843",
+    "rad": "537)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 78,
+    "y": 333,
+    "first_image": "target_recordingstudio.png",
+    "second_image": "target_recordingstudio_green_(78",
+    "rad": "333)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 231,
+    "y": 231,
+    "first_image": "target_airport.png",
+    "second_image": "target_airport_red_(231",
+    "rad": "231)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 588,
+    "y": 180,
+    "first_image": "target_constructionsite.png",
+    "second_image": "target_constructionsite_green_(588",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 945,
+    "y": 78,
+    "first_image": "target_dentistoffice.png",
+    "second_image": "target_dentistoffice_red_(945",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 78,
+    "y": 384,
+    "first_image": "target_swamp.png",
+    "second_image": "target_swamp_red_(78",
+    "rad": "384)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 894,
+    "y": 639,
+    "first_image": "target_park.png",
+    "second_image": "target_park_red_(894",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 180,
+    "y": 690,
+    "first_image": "target_bedroom.png",
+    "second_image": "target_bedroom_red_(180",
+    "rad": "690)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 792,
+    "y": 639,
+    "first_image": "target_sewingroom.png",
+    "second_image": "target_sewingroom_red_(792",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 78,
+    "y": 537,
+    "first_image": "target_hairsalon.png",
+    "second_image": "target_hairsalon_red_(78",
+    "rad": "537)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 843,
+    "y": 639,
+    "first_image": "target_artstudio.png",
+    "second_image": "target_artstudio_red_(843",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 231,
+    "y": 486,
+    "first_image": "target_stream.png",
+    "second_image": "target_stream_red_(231",
+    "rad": "486)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 129,
+    "y": 333,
+    "first_image": "target_laundryroom.png",
+    "second_image": "target_laundryroom_red_(129",
+    "rad": "333)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 129,
+    "y": 180,
+    "first_image": "target_nursery.png",
+    "second_image": "target_nursery_red_(129",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 282,
+    "y": 435,
+    "first_image": "target_patio.png",
+    "second_image": "target_patio_green_(282",
+    "rad": "435)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 843,
+    "y": 282,
+    "first_image": "target_closet.png",
+    "second_image": "target_closet_green_(843",
+    "rad": "282)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 741,
+    "y": 231,
+    "first_image": "target_library.png",
+    "second_image": "target_library_red_(741",
+    "rad": "231)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 843,
+    "y": 639,
+    "first_image": "target_deli.png",
+    "second_image": "target_deli_green_(843",
+    "rad": "639)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 588,
+    "y": 690,
+    "first_image": "target_buffet.png",
+    "second_image": "target_buffet_red_(588",
+    "rad": "690)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 486,
+    "y": 180,
+    "first_image": "target_canyon.png",
+    "second_image": "target_canyon_green_(486",
+    "rad": "180)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 945,
+    "y": 690,
+    "first_image": "target_diner.png",
+    "second_image": "target_diner_red_(945",
+    "rad": "690)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 333,
+    "y": 435,
+    "first_image": "target_beach.png",
+    "second_image": "target_beach_green_(333",
+    "rad": "435)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 129,
+    "y": 384,
+    "first_image": "target_classroom.png",
+    "second_image": "target_classroom_red_(129",
+    "rad": "384)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 435,
+    "y": 78,
+    "first_image": "target_field.png",
+    "second_image": "target_field_red_(435",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 945,
+    "y": 78,
+    "first_image": "target_ruins.png",
+    "second_image": "target_ruins_green_(945",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 639,
+    "y": 384,
+    "first_image": "target_grassland.png",
+    "second_image": "target_grassland_green_(639",
+    "rad": "384)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 690,
+    "y": 78,
+    "first_image": "target_waterfall.png",
+    "second_image": "target_waterfall_green_(690",
+    "rad": "78)_dist80.png",
+    "type": 43.5
+  },
+  {
+    "x": 129,
+    "y": 690,
+    "first_image": "target_toystore.png",
+    "second_image": "target_toystore_red_(129",
+    "rad": "690)_dist80.png",
+    "type": 43.5
+  }
+]
