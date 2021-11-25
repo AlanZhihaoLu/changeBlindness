@@ -31,7 +31,7 @@ function process_input(raw_stimuli, img_src) {
     return test_stimuli;
 }
 
-var test_stimuli = process_input(raw_stimuli, 'test/' + img_src);
+var test_stimuli = process_input(raw_stimuli, img_src + 'test/');
 
 var mask_stimulus = img_src + 'mask/gray.png';
 
@@ -62,4 +62,4 @@ var example_stimulus = [
   }
 ]
 
-var example_stimulus = process_input(example_stimulus, 'demo/' + img_src)
+var example_stimulus = process_input(example_stimulus, img_src + 'demo/')
