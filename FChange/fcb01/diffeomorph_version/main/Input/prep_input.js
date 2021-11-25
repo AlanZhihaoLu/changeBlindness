@@ -37,28 +37,12 @@ var mask_stimulus = img_src + 'mask/gray.png';
 
 var example_stimulus = [
   {
-    "x": 945,
-    "y": 231,
-    "first_image": "example_a.jpg",
-    "second_image": "example_b.jpg",
-    "rad": 43.5,
-    "delay1": 1,
-    "delay2": 1,
-    "delay3": 1,
-    "delay4": 1,
-    "delay5": 1
-  },
-  {
-    "x": 894,
-    "y": 231,
-    "first_image": "example_a.jpg",
-    "second_image": "example_b.jpg",
-    "rad": 43.5,
-    "delay1": 1,
-    "delay2": 1,
-    "delay3": 1,
-    "delay4": 1,
-    "delay5": 1
+    'x': '333',
+    'y': '282',
+    'first_image': 'target_subway.png',
+    'second_image': 'target_subway_green_(333,282)_dist80.png',
+    'rad': '43.5',
+    'type': 'green'
   }
 ]
 
