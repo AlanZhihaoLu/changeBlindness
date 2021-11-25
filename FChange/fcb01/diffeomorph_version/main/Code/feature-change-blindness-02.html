@@ -13,12 +13,6 @@
     </head>
     <body>
         <script>
-            test_stimuli.map(obj => {
-                obj.x = parseInt(obj.x);
-                obj.y = parseInt(obj.y);
-                obj.rad = parseFloat(obj.rad);
-            })
-
             test_stimuli = jsPsych.randomization.repeat(test_stimuli, 1);
 
             // test_stimuli = test_stimuli.slice(0, 3);

@@ -5,9 +5,9 @@ function process_input(raw_stimuli, img_src) {
     var i = 0;
     while (i < raw_stimuli.length) {
         var current = raw_stimuli[i];
-        var x = [current.x];
-        var y = [current.y];
-        var rad = [current.rad];
+        var x = [parseInt(current.x)];
+        var y = [parseInt(current.y)];
+        var rad = [parseFloat(current.rad)];
         var j = i + 1;
         while (j < raw_stimuli.length && current.first_image === raw_stimuli[j].first_image) {
             x.push(raw_stimuli[j].x);
