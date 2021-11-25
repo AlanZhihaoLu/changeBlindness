@@ -70,8 +70,9 @@
 
             var sbs_example = {
                 type: "html-button-response",
-                stimulus: `<img src="${jsPsych.timelineVariable('first_image')}" alt="First image" width="500" height="375">` +
-                    `<img src="${jsPsych.timelineVariable('circled_image')}" alt="Distortion-circled image" width="500" height="375">`,
+                stimulus: '<h3>Were you able to spot it? Just in case, here were the two versions, side-by-side, with the distortion circled in red.</h3>' +
+                `<img src="${example_stimulus[0].first_image}" alt="First image" width="500" height="375">` +
+                    `<img src="${example_stimulus[0].circled_image}" alt="Distortion-circled image" width="500" height="375">`,
                 choices: ["I see it!"]
             }
 
@@ -118,9 +119,10 @@
             };
 
             timeline.push({
-                timeline: [fixation, trial, feedback, sbs_example],
+                timeline: [fixation, trial, feedback],
                 timeline_variables: example_stimulus
             });
+            timeline.push(sbs_example)
             timeline.push(timing_explanation);
             timeline.push({
                 timeline: [fixation, trial, feedback],
