@@ -95,6 +95,12 @@
         pretty_name: 'Response ends trial',
         default: true,
         description: 'If true, trial will end when subject makes a response.'
+      },
+      flicker_end_image: {
+        type: jsPsych.plugins.parameterType.INT,
+        pretty_name: 'Specify which image to stop on',
+        default: true,
+        description: 'If 1, then flicker will stop on first image; if 2, then flicker will stop on second image.'
       }
     }
   }
@@ -279,6 +285,14 @@
       document.body.style.cursor = 'auto';
 
       var image2 = document.querySelector('#image2');
+      if (trial.flicker_end_image !== undefined) {
+        if (trial.flicker_end_image === 1) {
+          image2.style.opacity = 0;
+        }
+        else {
+          image2.style.opacity = 1;
+        }
+      }
       var image2_pos = FindPosition(image2);
 
       image2.addEventListener('mousedown', function(e) {

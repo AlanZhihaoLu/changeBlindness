@@ -31,7 +31,7 @@
 
             var image_dimensions = { 
                 original: [1024, 768],
-                scaled: [500, 375]
+                scaled: [700, 525]
             };
 
             var welcome = {
@@ -54,7 +54,7 @@
 
             var in_case_timeout = {
                 type: "html-button-response",
-                stimulus: "<p>If you can't find the difference in 60 seconds, the images will automatically stop alternating." +
+                stimulus: "<p>If you can't find the difference in 30 seconds, the images will automatically stop alternating." +
                     "<br>If that happens, just make a guess as to where the change occurred.",
                 choices: ["Let's try it out"]
             };
@@ -70,8 +70,8 @@
 
             var fixation = {
                 type: 'html-keyboard-response',
-                stimulus: '<div class="container-debug" style="background-color:gray;height:375px;width:500px">' +
-                    '<div style="font-size:60px;color:white;text-align:center;vertical-align:middle;line-height:375px;">+</div>' +
+                stimulus: `<div class="container-debug" style="background-color:gray;height:${image_dimensions.scaled[1]}px;width:${image_dimensions.scaled[0]}px">` +
+                    `<div style="font-size:60px;color:white;text-align:center;vertical-align:middle;line-height:${image_dimensions.scaled[1]}px;">+</div>` +
                     '</div>',
                 choices: jsPsych.NO_KEYS,
                 trial_duration: 2000,
@@ -88,8 +88,8 @@
                 patches: jsPsych.timelineVariable('patches'),
                 choices: [' '],
                 image_dimensions: image_dimensions,
-                delay_change_onset_alt: 1,
-                trial_duration: 60000
+                trial_duration: 30000,
+                flicker_end_image: 1
             };
 
             var feedback = {
@@ -141,7 +141,7 @@
                 timeline: timeline,
                 exclusions: {
                     min_width: image_dimensions.scaled[0]+100,
-                    min_height: image_dimensions.scaled[1]+150
+                    min_height: image_dimensions.scaled[1]+100
                 },
                 on_finish: function() {
                     jsPsych.data.displayData();
