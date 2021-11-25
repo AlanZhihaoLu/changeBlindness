@@ -36,18 +36,18 @@
 
             var welcome = {
                 type: "html-button-response",
-                stimulus: "<h3>Welcome to the experiment!</h3><p>Your goal in this experiment is to <b>spot the change between two pictures.</b></p>",
+                stimulus: "<h3>Welcome to the experiment!</h3><p>Your goal in this experiment is to <b>spot a distortion in a picture.</b></p>",
                 choices: ["Next"]
             };
             timeline.push(welcome);
 
             var introduction = {
                 type: "html-button-response",
-                stimulus: "<p>You will see two pictures rapidly alternating on your screen." +
-                "<br>One picture will be shown at a time. Between the two pictures, there will be one element that will change." +
-                "<br>Try to find that changing element as quickly as possible!" + 
-                "<br>When you find the change between the two pictures, press the spacebar to stop the images from alternating." +
-                "<br>Then, use your mouse and click on the location where you think the change occurred.</p>",
+                stimulus: "<p>You will see a picture flicker on your screen." +
+                "<br>There will be a portion of the picture that will distort as the picture flickers." +
+                "<br>Try to find that distortion as quickly as possible!" + 
+                "<br>When you find the distortion, press the spacebar to stop the images from alternating." +
+                "<br>Then, use your mouse and click on the location where you saw the distortion.</p>",
                 choices: ["Next"]
             };
             timeline.push(introduction);
@@ -55,18 +55,25 @@
             var in_case_timeout = {
                 type: "html-button-response",
                 stimulus: "<p>If you can't find the difference in 30 seconds, the images will automatically stop alternating." +
-                    "<br>If that happens, just make a guess as to where the change occurred.",
+                    "<br>If that happens, just make a guess as to where the distortion occurred.",
                 choices: ["Let's try it out"]
             };
             timeline.push(in_case_timeout);
 
             var timing_explanation = {
                 type: "html-button-response",
-                stimulus: "<p>You will be timed on how quickly you can spot the difference." +
+                stimulus: "<p>You will be timed on how quickly you can spot the distortion." +
                     "<br>The timer will begin as soon as you see the first image, and will stop as soon as you press the spacebar." +
-                    "<br>So, try to <b>press the spacebar</b> as soon as you spot the difference!</p>",
+                    "<br>So, try to <b>press the spacebar</b> as soon as you spot the distortion!</p>",
                 choices: ["Understood, let's get started"]
             };
+
+            var sbs_example = {
+                type: "html-button-response",
+                stimulus: `<img src="${jsPsych.timelineVariable('first_image')}" alt="First image" width="500" height="375">` +
+                    `<img src="${jsPsych.timelineVariable('circled_image')}" alt="Distortion-circled image" width="500" height="375">`,
+                choices: ["I see it!"]
+            }
 
             var fixation = {
                 type: 'html-keyboard-response',
@@ -99,7 +106,7 @@
                     if (last_trial_hit) {
                         return `<h3>Correct!</h3>`
                     } else {
-                        return "<h3>Sorry, that's not where the change was.</h3>"
+                        return "<h3>Sorry, that's not where the distortion was.</h3>"
                     }
                 },
                 choices: ["Let's see the next one"],
@@ -111,7 +118,7 @@
             };
 
             timeline.push({
-                timeline: [fixation, trial, feedback],
+                timeline: [fixation, trial, feedback, sbs_example],
                 timeline_variables: example_stimulus
             });
             timeline.push(timing_explanation);

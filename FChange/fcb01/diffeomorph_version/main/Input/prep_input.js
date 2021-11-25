@@ -41,9 +41,11 @@ var example_stimulus = [
     'y': '282',
     'first_image': 'target_subway.png',
     'second_image': 'target_subway_green_(333,282)_dist80.png',
+    'circled_image': 'target_subway_circled.png',
     'rad': '43.5',
     'type': 'green'
   }
 ]
 
-var example_stimulus = process_input(example_stimulus, img_src + 'demo/')
+var example_stimulus = process_input(example_stimulus, img_src + 'demo/');
+example_stimulus.map(obj => obj.circled_image = img_src + 'demo/' + obj.circled_image);
