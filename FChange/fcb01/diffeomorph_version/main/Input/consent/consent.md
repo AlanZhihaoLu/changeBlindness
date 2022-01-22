@@ -3,7 +3,7 @@
 The purpose of this study is to gain a better understanding of how people perceive real-world visual scenes like this:
 
 
-![](https://alanzhihaolu.github.io/inverted-scenes/Images/consent_images/coffeemaker.jpg)  
+![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker.png)  
 _Real-world visual scene example_
 
   
@@ -11,19 +11,19 @@ _Real-world visual scene example_
 
 If you agree to take part in this study, you will be presented with a series of flickering real-world scenes. As the image flickers, a distortion will appear.
 
-In this scene, the distortion will appear in the portion of the image circled in green.
+In this scene, the distortion will appear in the portion of the image circled in red.
 
-![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb02/main/Images/example_a_w_visual.jpg)  
+![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker_absent_circled.png)   
 _Original image_  
 
-![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb02/main/Images/example_b_w_visual.jpg)  
+(https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker_present_circled.png)   
 _Image with distortion_
 
   
 Your task will be to find the locations of distortion as quickly as possible, using a mouse and a keyboard. As soon as you find the change, press the spacebar once to stop the images from flickering. Then, use your mouse to click on the location of the change.
 
   
-![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb02/main/Images/trial_procedure.png)  
+![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/trial_procedure.png)  
 _A typical trial_
 
   
