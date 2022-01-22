@@ -3,7 +3,7 @@
 The purpose of this study is to gain a better understanding of how people perceive real-world visual scenes like this:
 
 
-![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker.png)  
+![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker.jpg)  
 _Real-world visual scene example_
 
   
@@ -16,7 +16,7 @@ In this scene, the distortion will appear in the portion of the image circled in
 ![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker_absent_circled.png)   
 _Original image_  
 
-(https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker_present_circled.png)   
+![](https://alanzhihaolu.github.io/changeBlindness/FChange/fcb01/diffeomorph_version/main/Input/consent/coffeemaker_present_circled.png)   
 _Image with distortion_
 
   
