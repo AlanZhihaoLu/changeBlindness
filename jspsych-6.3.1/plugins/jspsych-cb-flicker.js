@@ -172,6 +172,18 @@
     image2.style.opacity = 0;
     mask.style.opacity = 0;
 
+    var keyboardListener;
+
+    if (trial.choices != jsPsych.NO_KEYS) {
+      var keyboardListenerInput = {
+        callback_function: after_response,
+        valid_responses: trial.choices,
+        rt_method: 'performance',
+        persist: false,
+        allow_held_key: false
+      }
+    }
+
     function showHide(scenario) {
         if (scenario === 2) {
             mask.style.opacity = 1;
@@ -218,6 +230,7 @@
             }
           } else if (n_alt === trial.delay_change_onset_alt+0.5) {
             startTime = performance.now();
+            keyboardListener = jsPsych.pluginAPI.getKeyboardResponse(keyboardListenerInput);
             dcoa_flag = false;
           }
         }
@@ -226,17 +239,10 @@
         timeoutID = setTimeout(()=>changeImage(scenarios,n_alt),timing);
     }
 
-    if (trial.choices != jsPsych.NO_KEYS) {
-      var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
-        callback_function: after_response,
-        valid_responses: trial.choices,
-        rt_method: 'performance',
-        persist: false,
-        allow_held_key: false
-      });
+    var startTime = performance.now();
+    if (!dcoa_flag) {
+      keyboardListener = jsPsych.pluginAPI.getKeyboardResponse(keyboardListenerInput);
     }
-
-    startTime = performance.now();
     changeImage(scenarios,0);
     
     // Taken from https://www.chestysoft.com/imagefile/javascript/get-coordinates.asp
@@ -264,15 +270,23 @@
     // function to handle responses by the subject
     function after_response(info) {
 
+      // console.log('performance.now()', performance.now())
+
       if (info.rt === null) {
         trial_data.rt = null;
         trial_data.key_time = null;
       } else {
         // only record first response
-        trial_data.rt = trial_data.rt == null ? info.key_time-startTime : trial_data.rt;
-        trial_data.key_time = trial_data.key_time === null ? info.key_time : trial_data.key_time;
+        trial_data.rt = trial_data.rt == null ? info.rt : trial_data.rt;
+        trial_data.key_time = trial_data.key_time === null ? info.rt + startTime : trial_data.key_time;
       }
       trial_data.changeOnset = trial_data.changeOnset === null ? startTime : trial_data.changeOnset;
+
+      // console.log('info',info)
+      // console.log('trial_data',trial_data)
+      // console.log('startTime',startTime)
+      // console.log('info.key_time-startTime',info.key_time-startTime)
+      // console.log('info.rt + startTime',info.rt + startTime)
 
       mask.style.opacity = 0;
       clearTimeout(timeoutID);
@@ -333,21 +347,24 @@
       jsPsych.pluginAPI.setTimeout(function() {
         image2.src = trial.second_image;
         startTime = performance.now();
+        keyboardListener = jsPsych.pluginAPI.getKeyboardResponse(keyboardListenerInput);
       }, trial.delay_change_onset_time);
     }
 
-    // end trial if trial_duration is set
+    // stop flickering if trial_duration is set
     if (trial.trial_duration !== null) {
       jsPsych.pluginAPI.setTimeout(function() {
+        // only if has not already responded
+        if (!responded) {
+          // kill keyboard listeners
+          if (typeof keyboardListener !== 'undefined') {
+            jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
+          }
 
-        // kill keyboard listeners
-        if (typeof keyboardListener !== 'undefined') {
-          jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
+          after_response({
+            rt: null
+          });
         }
-
-        after_response({
-          rt: null
-        });
       }, trial.trial_duration);
     }
 

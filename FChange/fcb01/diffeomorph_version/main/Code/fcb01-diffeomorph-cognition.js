@@ -152,7 +152,7 @@ jsPsych.init({
       min_height: image_dimensions.scaled[1]+100
     },
     on_finish: function(data){
-      window.location.assign("https://ucdavis.sona-systems.com/webstudy_credit.aspx?experiment_id=2801&credit_token=0c619d0a40f84e1c953f76e325c494c4&survey_code="+sona_id)
-    	  
+        jsPsych.data.addProperties({sbj_id: sona_id, cond: input_code});
+        window.location.assign("https://ucdavis.sona-systems.com/webstudy_credit.aspx?experiment_id=2801&credit_token=0c619d0a40f84e1c953f76e325c494c4&survey_code="+sona_id)
   	}
 });
