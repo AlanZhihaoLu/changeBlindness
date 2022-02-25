@@ -18,7 +18,7 @@ var preload = {
 }
 timeline.push(preload);
 
-var mask_stimulus = 'gray.png';
+var mask_stimulus = 'https://alanzhihaolu.github.io/changeBlindness/FChange/fcb02/main/Input/mask/mask.png';
 
 var image_dimensions = { 
     original: [1024, 768],
@@ -93,7 +93,7 @@ var recap = {
             
 var fixation = {
     type: 'html-keyboard-response',
-    stimulus: `<div class="container-debug" style="background-color:gray;height:${image_dimensions.scaled[1]}px;width:${image_dimensions.scaled[0]}px">` +
+    stimulus: `<div class="container-debug" style="background-image:url(${mask_stimulus});height:${image_dimensions.scaled[1]}px;width:${image_dimensions.scaled[0]}px">` +
         `<div style="font-size:60px;color:white;text-align:center;vertical-align:middle;line-height:${image_dimensions.scaled[1]}px;">+</div>` +
         '</div>',
     choices: jsPsych.NO_KEYS,
